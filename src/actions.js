@@ -63,9 +63,3 @@ export const removeTimeboxRemotely = (timebox, accessToken) => (dispatch) => {
   );
 };
 
-export const fetchSearchTimeboxes = (accessToken) => (dispatch) => {
-  TimeboxesAPI.getAllTimeboxes(accessToken)
-    .then((timeboxes) => dispatch(searchInput(timeboxes)))
-    .catch((error) => dispatch(setError(error)))
-    .finally(() => dispatch(disableLoadingIndicator()));
-};

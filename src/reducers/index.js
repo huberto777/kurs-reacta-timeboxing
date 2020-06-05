@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { currentTimeboxIdReducer } from "./currentTimeboxIdReducer";
 import timeboxesReducer, * as timeboxesSelectors from "./timeboxesReducer";
 import { currentlyEditedTimeboxIdReducer } from "./currentlyEditedTimeboxIdReducer";
@@ -6,14 +5,6 @@ import { timeboxesAreLoadingReducer } from "./timeboxesAreLoadingReducer";
 import { timeboxesLoadingErrorReducer } from "./timeboxesLoadingErrorReducer";
 import timeboxesSearchReducer from "./timeboxesSearchReducer";
 
-// const rootReducer = combineReducers({
-//   timeboxesReducer,
-//   currentTimeboxIdReducer,
-//   currentlyEditedTimeboxIdReducer,
-//   timeboxesSearchReducer,
-//   timeboxesAreLoadingReducer,
-//   timeboxesLoadingErrorReducer,
-// });
 function rootReducer(state = {}, action) {
   return {
     currentTimeboxId: currentTimeboxIdReducer(state.currentTimeboxId, action),
