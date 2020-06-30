@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/kurs-reacta-timeboxing/static/css/main.9fd67fdf.chunk.css",
+    "main.css": "/kurs-reacta-timeboxing/static/css/main.1157d094.chunk.css",
     "main.js": "/kurs-reacta-timeboxing/static/js/main.dccd3139.chunk.js",
     "main.js.map": "/kurs-reacta-timeboxing/static/js/main.dccd3139.chunk.js.map",
     "runtime-main.js": "/kurs-reacta-timeboxing/static/js/runtime-main.b730a9e1.js",
@@ -14,14 +14,14 @@
     "static/js/5.85ed3b3f.chunk.js": "/kurs-reacta-timeboxing/static/js/5.85ed3b3f.chunk.js",
     "static/js/5.85ed3b3f.chunk.js.map": "/kurs-reacta-timeboxing/static/js/5.85ed3b3f.chunk.js.map",
     "index.html": "/kurs-reacta-timeboxing/index.html",
-    "precache-manifest.eee51c0215c90caa0c4483311f89858b.js": "/kurs-reacta-timeboxing/precache-manifest.eee51c0215c90caa0c4483311f89858b.js",
+    "precache-manifest.363a333452ccf7e9f28cdba123716923.js": "/kurs-reacta-timeboxing/precache-manifest.363a333452ccf7e9f28cdba123716923.js",
     "service-worker.js": "/kurs-reacta-timeboxing/service-worker.js",
-    "static/css/main.9fd67fdf.chunk.css.map": "/kurs-reacta-timeboxing/static/css/main.9fd67fdf.chunk.css.map"
+    "static/css/main.1157d094.chunk.css.map": "/kurs-reacta-timeboxing/static/css/main.1157d094.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.b730a9e1.js",
     "static/js/3.1a960dd7.chunk.js",
-    "static/css/main.9fd67fdf.chunk.css",
+    "static/css/main.1157d094.chunk.css",
     "static/js/main.dccd3139.chunk.js"
   ]
 }
