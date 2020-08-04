@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "51a7bcf329e02043c933ed081d9cad7d",
+    "revision": "2c5d56729d97313ee191b593f7506b6e",
     "url": "/kurs-reacta-timeboxing/index.html"
   },
   {
-    "revision": "8268604943167e809804",
-    "url": "/kurs-reacta-timeboxing/static/css/main.1157d094.chunk.css"
+    "revision": "7267c796963685853b7f",
+    "url": "/kurs-reacta-timeboxing/static/css/main.0a9b4063.chunk.css"
   },
   {
     "revision": "642397d1a7a19ba887d4",
@@ -16,19 +16,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kurs-reacta-timeboxing/static/js/3.1a960dd7.chunk.js"
   },
   {
-    "revision": "0365196aa58afe3f16f6",
-    "url": "/kurs-reacta-timeboxing/static/js/4.0c7305e3.chunk.js"
+    "revision": "27b098e38f11354e60c5",
+    "url": "/kurs-reacta-timeboxing/static/js/4.9d67920c.chunk.js"
   },
   {
     "revision": "4e986601c331342e9aab",
     "url": "/kurs-reacta-timeboxing/static/js/5.85ed3b3f.chunk.js"
   },
   {
-    "revision": "8268604943167e809804",
-    "url": "/kurs-reacta-timeboxing/static/js/main.dccd3139.chunk.js"
+    "revision": "7267c796963685853b7f",
+    "url": "/kurs-reacta-timeboxing/static/js/main.e28ec606.chunk.js"
   },
   {
-    "revision": "77802778698676cec27f",
-    "url": "/kurs-reacta-timeboxing/static/js/runtime-main.b730a9e1.js"
+    "revision": "cadbc8fc03bb5ce93fa8",
+    "url": "/kurs-reacta-timeboxing/static/js/runtime-main.63ab4213.js"
   }
 ]);
