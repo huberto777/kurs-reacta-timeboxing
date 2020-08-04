@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "2c5d56729d97313ee191b593f7506b6e",
+    "revision": "d57a6c43a74477b0b991278d3f54da22",
     "url": "/kurs-reacta-timeboxing/index.html"
   },
   {
-    "revision": "7267c796963685853b7f",
-    "url": "/kurs-reacta-timeboxing/static/css/main.0a9b4063.chunk.css"
+    "revision": "36a9cd13dab2fba70fd3",
+    "url": "/kurs-reacta-timeboxing/static/css/main.b089881a.chunk.css"
   },
   {
     "revision": "642397d1a7a19ba887d4",
@@ -24,8 +24,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/kurs-reacta-timeboxing/static/js/5.85ed3b3f.chunk.js"
   },
   {
-    "revision": "7267c796963685853b7f",
-    "url": "/kurs-reacta-timeboxing/static/js/main.e28ec606.chunk.js"
+    "revision": "36a9cd13dab2fba70fd3",
+    "url": "/kurs-reacta-timeboxing/static/js/main.ce596f9d.chunk.js"
   },
   {
     "revision": "cadbc8fc03bb5ce93fa8",
