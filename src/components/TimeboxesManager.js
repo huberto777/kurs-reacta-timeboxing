@@ -1,12 +1,12 @@
-import React, { useEffect, useContext } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import TimeboxCreator from "./TimeboxCreator";
-import TimeboxesAPI from "../api/FakeTimeboxesApi";
-import AuthenticationContext from "../contexts/AuthenticationContext";
-import FinishedTimeboxesList from "./FinishedTimeboxesList";
-import { RemainingTimeboxesList } from "./TimeboxesList";
+import React, { useEffect, useContext } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import ModalDialog from './ModalDialog';
+import TimeboxesAPI from '../api/FakeTimeboxesApi';
+import AuthenticationContext from '../contexts/AuthenticationContext';
+import FinishedTimeboxesList from './FinishedTimeboxesList';
+import { RemainingTimeboxesList } from './TimeboxesList';
 // import ReadOnlyTimebox from "./ReadOnlyTimebox";
-import { areTimeboxesLoading, getTimeboxesLoadingError } from "../reducers";
+import { areTimeboxesLoading, getTimeboxesLoadingError, timeboxIsCreating } from '../reducers';
 import {
   fetchAllTimeboxes,
   addTimebox,
@@ -14,9 +14,11 @@ import {
   removeTimeboxRemotely,
   stopEditingTimebox,
   searchInput,
-} from "../actions";
-import { EditableTimebox } from "./EditableTimebox";
-import SearchTimeboxes from "./SearchTimeboxes";
+  setTimeboxCreating,
+  cancelTimeboxCreating,
+} from '../actions';
+import { EditableTimebox } from './EditableTimebox';
+import SearchTimeboxes from './SearchTimeboxes';
 
 function TimeboxesManager() {
   const dispatch = useDispatch();
@@ -24,6 +26,7 @@ function TimeboxesManager() {
 
   const timeboxesLoading = useSelector(areTimeboxesLoading);
   const timeboxesLoadingError = useSelector(getTimeboxesLoadingError);
+  const timeboxCreating = useSelector(timeboxIsCreating);
 
   useEffect(() => {
     dispatch(fetchAllTimeboxes(accessToken));
@@ -31,33 +34,26 @@ function TimeboxesManager() {
 
   const handleCreate = (createdTimebox) => {
     try {
-      TimeboxesAPI.addTimebox(
-        createdTimebox,
-        accessToken
-      ).then((addedTimebox) => dispatch(addTimebox(addedTimebox)));
+      TimeboxesAPI.addTimebox(createdTimebox, accessToken).then(
+        (addedTimebox) => dispatch(addTimebox(addedTimebox)),
+        dispatch(cancelTimeboxCreating()),
+      );
     } catch (error) {
-      console.log("Jest błąd przy tworzeniu timeboxa:", error);
+      console.log('Jest błąd przy tworzeniu timeboxa:', error);
     }
   };
   const renderTimebox = (timebox) => {
     const onUpdate = (updatedTimebox) => {
       const timeboxToUpdate = { ...timebox, ...updatedTimebox };
-      TimeboxesAPI.replaceTimebox(
-        timeboxToUpdate,
-        accessToken
-      ).then((replacedTimebox) => dispatch(replaceTimebox(replacedTimebox)));
+      TimeboxesAPI.replaceTimebox(timeboxToUpdate, accessToken).then((replacedTimebox) =>
+        dispatch(replaceTimebox(replacedTimebox)),
+      );
       dispatch(stopEditingTimebox());
     };
-    const onDelete = () =>
-      dispatch(removeTimeboxRemotely(timebox, accessToken));
+    const onDelete = () => dispatch(removeTimeboxRemotely(timebox, accessToken));
 
     return (
-      <EditableTimebox
-        key={timebox.id}
-        timebox={timebox}
-        onUpdate={onUpdate}
-        onDelete={onDelete}
-      />
+      <EditableTimebox key={timebox.id} timebox={timebox} onUpdate={onUpdate} onDelete={onDelete} />
     );
   };
   // function renderReadOnlyTimebox(timebox, index) {
@@ -72,9 +68,17 @@ function TimeboxesManager() {
   return (
     <>
       <SearchTimeboxes search={(e) => dispatch(searchInput(e))} />
-      <TimeboxCreator onCreate={handleCreate} />
-      {timeboxesLoading ? "Timeboxy się ładują..." : null}
-      {timeboxesLoadingError ? "Nie udało się załadować :(" : null}
+      {timeboxCreating ? (
+        <ModalDialog onClose={() => dispatch(cancelTimeboxCreating())} onCreate={handleCreate} />
+      ) : (
+        //   <TimeboxCreator  />
+        // </ModalDialog>
+        <button className="addButton" onClick={() => dispatch(setTimeboxCreating())}>
+          +
+        </button>
+      )}
+      {timeboxesLoading ? 'Timeboxy się ładują...' : null}
+      {timeboxesLoadingError ? 'Nie udało się załadować :(' : null}
       <RemainingTimeboxesList renderTimebox={renderTimebox} />
       <FinishedTimeboxesList />
     </>

@@ -1,5 +1,19 @@
+body {
+  background-color: $bg-secondary-dark;
+}
+
 .App {
   font-family: sans-serif;
+}
+
+.title {
+  text-align: center;
+  color: $bg-secondary;
+  font-size: 2em;
+}
+
+.quote {
+  color: $bg-secondary;
 }
 
 .Timebox,
@@ -11,13 +25,12 @@
 }
 
 .TimeboxFinished {
-  background-color: lighten(green, 50);
+  background-color: $bg-finish;
 }
 
 .TimeboxEditor,
 .TimeboxCreator,
-.LoginForm,
-.TimeboxSearch {
+.LoginForm {
   text-align: right;
   border: $default-border;
   border-radius: $border-radius;
@@ -25,25 +38,26 @@
   margin-bottom: 10px;
 }
 
-.TimeboxCreator,
-.LoginForm {
-  background-color: lighten(aqua, 30);
-}
-
 .TimeboxEditor {
-  background-color: darken(aquamarine, 5);
+  background-color: $bg-primary-dark;
+  color: $bg-secondary;
 }
 
 .TimeboxSearch {
-  background-color: lighten(orange, 30);
+  background-color: $bg-primary-dark;
+  text-align: right;
+  border-radius: $border-radius;
+  padding: 20px;
+  margin-bottom: 10px;
 }
 
 .Timebox {
-  background-color: #ffaaaa;
+  background-color: $bg-secondary-dark;
+  color: $bg-secondary;
 }
 
 .CurrentTimebox {
-  background-color: #ffffaa;
+  background-color: $bg-secondary;
 }
 
 input {
@@ -51,7 +65,11 @@ input {
   margin-left: 20px;
   font-size: 16px;
   padding-left: 10px;
+  border-radius: $border-radius;
+  border: $default-border;
+
 }
+
 
 button {
   font-size: 16px;
@@ -98,22 +116,57 @@ button {
   display: flex;
   justify-content: flex-end;
   margin: 15px;
+  color: $bg-secondary;
 
   &__logout-link {
     margin-left: 10px;
   }
 }
 
+a {
+  text-decoration: none;
+  color: $bg-primary-dark;
+
+  &:hover {
+    color: $bg-primary;
+  }
+}
+
 .LoginForm {
+  color: $bg-secondary;
+
   &__error-message {
     margin: 15px auto;
     text-align: center;
-    border: 1px solid red;
+    border: 1px solid orangered;
     padding: 10px;
     border-radius: 5px;
-    color: red;
+    color: orangered;
   }
 }
+
 .error {
-  color: red;
+  color: orangered;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $bg-secondary; 
+    font-family: sans-serif;
+}
+
+.addButton {
+  background-color: maroon;
+  color: $bg-secondary;
+  border: none;
+  border-radius: 5px;
+  font-size: 2em;
+  margin: 0 0 10px 0;
 }

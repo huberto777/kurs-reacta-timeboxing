@@ -1,28 +1,28 @@
-import React from "react";
-import { useFormik } from "formik";
+import React from 'react';
+import { useFormik } from 'formik';
 
 const validate = (values) => {
   const errors = {};
   if (!values.title) {
-    errors.title = "Required";
+    errors.title = 'Required';
   } else if (values.title.length < 3) {
-    errors.title = "Must be 3 characters or less";
+    errors.title = 'Must be 3 characters or less';
   }
 
   if (!values.totalTimeInMinutes) {
-    errors.totalTimeInMinutes = "Required";
+    errors.totalTimeInMinutes = 'Required';
   } else if (values.totalTimeInMinutes <= 0) {
-    errors.totalTimeInMinutes = "Must be greater than 0";
+    errors.totalTimeInMinutes = 'Must be greater than 0';
   }
 
   return errors;
 };
 
-const TimeboxCreator = ({ onCreate }) => {
+const TimeboxCreator = ({ onCreate, onClose }) => {
   const formik = useFormik({
     initialValues: {
-      title: "",
-      totalTimeInMinutes: "",
+      title: '',
+      totalTimeInMinutes: '',
       finished: false,
     },
     validate,
@@ -64,7 +64,8 @@ const TimeboxCreator = ({ onCreate }) => {
         <div className="error">{formik.errors.totalTimeInMinutes}</div>
       ) : null}
       <br />
-      <button type="submit">Submit</button>
+      <button type="submit">Zapisz</button>
+      <button onClick={onClose}>Anuluj</button>
     </form>
   );
 };

@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 
-import ErrorBoundary from "./ErrorBoundary";
-import LoginForm from "./LoginForm";
-import AuthenticationContext from "../contexts/AuthenticationContext";
-import AuthenticationAPI from "../api/FakeAuthenticationApi";
+import ErrorBoundary from './ErrorBoundary';
+import LoginForm from './LoginForm';
+import AuthenticationContext from '../contexts/AuthenticationContext';
+import AuthenticationAPI from '../api/FakeAuthenticationApi';
 
-const AuthenticatedApp = React.lazy(() => import("./AuthenticatedApp"));
+const AuthenticatedApp = React.lazy(() => import('./AuthenticatedApp'));
 
 class App extends React.Component {
   state = {
@@ -13,13 +13,6 @@ class App extends React.Component {
     previousLoginAttemptFailed: false,
     expiresIn: 3600000,
   };
-
-  getAccessToken() {
-    this.setState({
-      accessToken: localStorage.getItem("accessToken"),
-      previousLoginAttemptFailed: false,
-    });
-  }
 
   componentDidMount() {
     this.getAccessToken();
@@ -32,14 +25,17 @@ class App extends React.Component {
     clearInterval(this.intID);
   }
 
-  isUserLoggedIn() {
-    return !!this.state.accessToken;
+  getAccessToken() {
+    this.setState({
+      accessToken: localStorage.getItem('accessToken'),
+      previousLoginAttemptFailed: false,
+    });
   }
 
   handleLoginAttempt = (credentials) => {
     AuthenticationAPI.login(credentials)
       .then(({ accessToken }) => {
-        localStorage.setItem("accessToken", accessToken);
+        localStorage.setItem('accessToken', accessToken);
         this.getAccessToken();
       })
       .catch(() => {
@@ -52,31 +48,30 @@ class App extends React.Component {
 
   handleLogout = () => {
     this.setState({
-      accessToken: localStorage.removeItem("accessToken"),
+      accessToken: localStorage.removeItem('accessToken'),
       previousLoginAttemptFailed: false,
     });
   };
 
+  isUserLoggedIn() {
+    return !!this.state.accessToken;
+  }
+
   render() {
     return (
       <div className="App">
+        <h2 className="title">Timeboxing</h2>
         <ErrorBoundary message="Coś nie działa w całej aplikacji">
           {this.isUserLoggedIn() ? (
-            <AuthenticationContext.Provider
-              value={{ accessToken: this.state.accessToken }}
-            >
-              {
-                <React.Suspense fallback={"... Loading"}>
-                  <AuthenticatedApp onLogout={this.handleLogout} />
-                </React.Suspense>
-              }
+            <AuthenticationContext.Provider value={{ accessToken: this.state.accessToken }}>
+              <React.Suspense fallback="... Loading">
+                <AuthenticatedApp onLogout={this.handleLogout} />
+              </React.Suspense>
             </AuthenticationContext.Provider>
           ) : (
             <LoginForm
               errorMessage={
-                this.state.previousLoginAttemptFailed
-                  ? "Nie udało się zalogować"
-                  : null
+                this.state.previousLoginAttemptFailed ? 'Nie udało się zalogować' : null
               }
               onLoginAttempt={this.handleLoginAttempt}
             />

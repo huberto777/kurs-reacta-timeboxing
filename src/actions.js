@@ -1,6 +1,6 @@
-import TimeboxesAPI from "./api/FakeTimeboxesApi";
-import { isAnyTimeboxCurrent, getCurrentTimebox } from "./reducers";
-import * as types from "./constants/types";
+import TimeboxesAPI from './api/FakeTimeboxesApi';
+import { isAnyTimeboxCurrent, getCurrentTimebox } from './reducers';
+import * as types from './constants/types';
 
 export const setTimeboxes = (timeboxes) => ({
   type: types.TIMEBOXES_SET,
@@ -49,6 +49,12 @@ export const searchInput = (e) => ({
   type: types.SEARCH_INPUT,
   payload: e.target.value.toLowerCase(),
 });
+export const setTimeboxCreating = () => ({
+  type: types.SET_TIMEBOX_CREATING,
+});
+export const cancelTimeboxCreating = () => ({
+  type: types.CANCEL_TIMEBOX_CREATING,
+});
 
 // redux-thunk
 export const fetchAllTimeboxes = (accessToken) => (dispatch) => {
@@ -58,8 +64,5 @@ export const fetchAllTimeboxes = (accessToken) => (dispatch) => {
     .finally(() => dispatch(disableLoadingIndicator()));
 };
 export const removeTimeboxRemotely = (timebox, accessToken) => (dispatch) => {
-  TimeboxesAPI.removeTimebox(timebox, accessToken).then(() =>
-    dispatch(removeTimebox(timebox))
-  );
+  TimeboxesAPI.removeTimebox(timebox, accessToken).then(() => dispatch(removeTimebox(timebox)));
 };
-

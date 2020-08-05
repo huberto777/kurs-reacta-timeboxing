@@ -1,2 +1,14 @@
-$default-border: 1px solid gray;
+$default-border: 1px solid lighten(gray, 30);
 $border-radius: 5px;
+
+$bg-primary: rgb(255, 251, 0);
+$bg-primary-light: rgb(255, 208, 0);
+$bg-primary-dark: orangered;
+
+$bg-secondary: lighten(grey, 30);
+$bg-secondary-dark: darken(grey, 30);
+
+$bg-tertiary: lighten(aquamarine, 5);
+$bg-tertiary-dark: darken(aquamarine, 35);
+
+$bg-finish: lighten(green, 60);

@@ -1,10 +1,10 @@
-import React from "react";
-import Clock from "./Clock";
-import ProgressBar from "./ProgressBar";
-import { getMinutesAndSecondsFromDurationInSeconds } from "../lib/time";
-import { getCurrentTimebox } from "../reducers";
-import { finishCurrentTimebox, stopCurrentTimebox } from "../actions";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
+import Clock from './Clock';
+import ProgressBar from './ProgressBar';
+import { getMinutesAndSecondsFromDurationInSeconds } from '../lib/time';
+import { getCurrentTimebox } from '../reducers';
+import { finishCurrentTimebox, stopCurrentTimebox } from '../actions';
 
 class CurrentTimebox extends React.Component {
   constructor(props) {
@@ -29,13 +29,13 @@ class CurrentTimebox extends React.Component {
   componentWillUnmount() {
     this.stopTimer();
   }
-  handleStart(event) {
+  handleStart() {
     this.setState({
       isRunning: true,
     });
     this.startTimer();
   }
-  handleStop(event) {
+  handleStop() {
     this.setState({
       isRunning: false,
       isPaused: false,
@@ -52,10 +52,9 @@ class CurrentTimebox extends React.Component {
           const totalTimeInSeconds = totalTimeInMinutes * 60;
           const elapsedTimeInSeconds = Math.min(
             prevState.elapsedTimeInSeconds + 0.1,
-            totalTimeInSeconds
+            totalTimeInSeconds,
           );
-          const isFinished =
-            prevState.isFinished || elapsedTimeInSeconds >= totalTimeInSeconds;
+          const isFinished = prevState.isFinished || elapsedTimeInSeconds >= totalTimeInSeconds;
           if (isFinished) {
             this.stopTimer();
           }
@@ -71,7 +70,7 @@ class CurrentTimebox extends React.Component {
     this.intervalId = null;
   }
   togglePause() {
-    this.setState(function (prevState) {
+    this.setState((prevState) => {
       const isPaused = !prevState.isPaused;
       if (isPaused) {
         this.stopTimer();
@@ -80,41 +79,25 @@ class CurrentTimebox extends React.Component {
       }
       return {
         isPaused,
-        pausesCount: isPaused
-          ? prevState.pausesCount + 1
-          : prevState.pausesCount,
+        pausesCount: isPaused ? prevState.pausesCount + 1 : prevState.pausesCount,
       };
     });
   }
 
   render() {
-    const {
-      isFinished,
-      isPaused,
-      isRunning,
-      pausesCount,
-      elapsedTimeInSeconds,
-    } = this.state;
+    const { isFinished, isPaused, isRunning, pausesCount, elapsedTimeInSeconds } = this.state;
     const { title, totalTimeInMinutes, onCancel } = this.props;
     const totalTimeInSeconds = totalTimeInMinutes * 60;
     const timeLeftInSeconds = totalTimeInSeconds - elapsedTimeInSeconds;
-    const [
-      minutesLeft,
-      secondsLeft,
-    ] = getMinutesAndSecondsFromDurationInSeconds(timeLeftInSeconds);
-    const progressInPercent =
-      (elapsedTimeInSeconds / totalTimeInSeconds) * 100.0;
+    const [minutesLeft, secondsLeft] = getMinutesAndSecondsFromDurationInSeconds(timeLeftInSeconds);
+    const progressInPercent = (elapsedTimeInSeconds / totalTimeInSeconds) * 100.0;
     return (
       <div className="CurrentTimebox">
         <h1>{title}</h1>
-        <Clock
-          minutes={minutesLeft}
-          seconds={secondsLeft}
-          className={isPaused ? "inactive" : ""}
-        />
+        <Clock minutes={minutesLeft} seconds={secondsLeft} className={isPaused ? 'inactive' : ''} />
         <ProgressBar
           percent={progressInPercent}
-          className={isPaused ? "inactive" : ""}
+          className={isPaused ? 'inactive' : ''}
           color="red"
           big
         />
@@ -125,7 +108,7 @@ class CurrentTimebox extends React.Component {
           Stop
         </button>
         <button onClick={this.togglePause} disabled={!isRunning}>
-          {isPaused ? "Wznów" : "Pauzuj"}
+          {isPaused ? 'Wznów' : 'Pauzuj'}
         </button>
         Liczba przerw: {pausesCount}
         <button onClick={onCancel}>reset</button>
@@ -145,9 +128,8 @@ function CurrentTimeboxOrNothing({ currentTimebox, onFinish, onCancel }) {
         onCancel={onCancel}
       />
     );
-  } else {
-    return null;
   }
+  return null;
 }
 
 function mapStateToProps(state) {
@@ -158,14 +140,11 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
+function mapDispatchToProps(dispatch) {
   return {
     onFinish: () => dispatch(finishCurrentTimebox()),
     onCancel: () => dispatch(stopCurrentTimebox()),
   };
 }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(CurrentTimeboxOrNothing);
+export default connect(mapStateToProps, mapDispatchToProps)(CurrentTimeboxOrNothing);

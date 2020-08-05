@@ -45,7 +45,8 @@
   },
   "devDependencies": {
     "@testing-library/react": "^8.0.1",
-    "eslint": "^6.8.0",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.6.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.1",
@@ -53,9 +54,9 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.0",
     "husky": "^4.2.5",
-    "react-test-renderer": "^16.8.6",
     "lint-staged": "^9.5.0",
-    "prettier": "^1.19.1"
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.8.6"
   },
   "husky": {
     "hooks": {
