@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/kurs-reacta-timeboxing/precache-manifest.98f28b9fc4216e97e2415a647784b952.js"
+  "/kurs-reacta-timeboxing/precache-manifest.a3c0f9a3fd22f78654d4a21164261c81.js"
 );
 
 self.addEventListener('message', (event) => {
