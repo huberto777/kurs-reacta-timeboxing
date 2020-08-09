@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/kurs-reacta-timeboxing/static/css/main.24d25966.chunk.css",
-    "main.js": "/kurs-reacta-timeboxing/static/js/main.51515bb7.chunk.js",
-    "main.js.map": "/kurs-reacta-timeboxing/static/js/main.51515bb7.chunk.js.map",
-    "runtime-main.js": "/kurs-reacta-timeboxing/static/js/runtime-main.17db9673.js",
-    "runtime-main.js.map": "/kurs-reacta-timeboxing/static/js/runtime-main.17db9673.js.map",
-    "static/js/2.356ea2c4.chunk.js": "/kurs-reacta-timeboxing/static/js/2.356ea2c4.chunk.js",
-    "static/js/2.356ea2c4.chunk.js.map": "/kurs-reacta-timeboxing/static/js/2.356ea2c4.chunk.js.map",
-    "static/js/3.3ee5ee69.chunk.js": "/kurs-reacta-timeboxing/static/js/3.3ee5ee69.chunk.js",
-    "static/js/3.3ee5ee69.chunk.js.map": "/kurs-reacta-timeboxing/static/js/3.3ee5ee69.chunk.js.map",
-    "static/js/4.607d1c74.chunk.js": "/kurs-reacta-timeboxing/static/js/4.607d1c74.chunk.js",
-    "static/js/4.607d1c74.chunk.js.map": "/kurs-reacta-timeboxing/static/js/4.607d1c74.chunk.js.map",
-    "static/js/5.7f4d07fe.chunk.js": "/kurs-reacta-timeboxing/static/js/5.7f4d07fe.chunk.js",
-    "static/js/5.7f4d07fe.chunk.js.map": "/kurs-reacta-timeboxing/static/js/5.7f4d07fe.chunk.js.map",
+    "main.js": "/kurs-reacta-timeboxing/static/js/main.0828f752.chunk.js",
+    "main.js.map": "/kurs-reacta-timeboxing/static/js/main.0828f752.chunk.js.map",
+    "runtime-main.js": "/kurs-reacta-timeboxing/static/js/runtime-main.d5551564.js",
+    "runtime-main.js.map": "/kurs-reacta-timeboxing/static/js/runtime-main.d5551564.js.map",
+    "static/js/2.fee99e1b.chunk.js": "/kurs-reacta-timeboxing/static/js/2.fee99e1b.chunk.js",
+    "static/js/2.fee99e1b.chunk.js.map": "/kurs-reacta-timeboxing/static/js/2.fee99e1b.chunk.js.map",
+    "static/js/3.52dda8c4.chunk.js": "/kurs-reacta-timeboxing/static/js/3.52dda8c4.chunk.js",
+    "static/js/3.52dda8c4.chunk.js.map": "/kurs-reacta-timeboxing/static/js/3.52dda8c4.chunk.js.map",
+    "static/js/4.c6119994.chunk.js": "/kurs-reacta-timeboxing/static/js/4.c6119994.chunk.js",
+    "static/js/4.c6119994.chunk.js.map": "/kurs-reacta-timeboxing/static/js/4.c6119994.chunk.js.map",
+    "static/js/5.ed4de956.chunk.js": "/kurs-reacta-timeboxing/static/js/5.ed4de956.chunk.js",
+    "static/js/5.ed4de956.chunk.js.map": "/kurs-reacta-timeboxing/static/js/5.ed4de956.chunk.js.map",
     "index.html": "/kurs-reacta-timeboxing/index.html",
-    "precache-manifest.181b2c93fce7c83a23d5418faaaaf806.js": "/kurs-reacta-timeboxing/precache-manifest.181b2c93fce7c83a23d5418faaaaf806.js",
+    "precache-manifest.003d3d980cd3caad019f18ff6c3cee49.js": "/kurs-reacta-timeboxing/precache-manifest.003d3d980cd3caad019f18ff6c3cee49.js",
     "service-worker.js": "/kurs-reacta-timeboxing/service-worker.js",
     "static/css/main.24d25966.chunk.css.map": "/kurs-reacta-timeboxing/static/css/main.24d25966.chunk.css.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.17db9673.js",
-    "static/js/3.3ee5ee69.chunk.js",
+    "static/js/runtime-main.d5551564.js",
+    "static/js/3.52dda8c4.chunk.js",
     "static/css/main.24d25966.chunk.css",
-    "static/js/main.51515bb7.chunk.js"
+    "static/js/main.0828f752.chunk.js"
   ]
 }
