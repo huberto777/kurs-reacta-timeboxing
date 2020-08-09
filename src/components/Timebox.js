@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import { getCurrentTimebox } from "../reducers";
+import React from 'react';
+import { connect } from 'react-redux';
+import { getCurrentTimebox } from '../reducers';
 
 function mapStateToProps(state) {
   const currentTimebox = getCurrentTimebox(state);
@@ -10,27 +10,27 @@ function mapStateToProps(state) {
   };
 }
 
-function Timebox({
-  title,
-  totalTimeInMinutes,
-  onDelete,
-  onEdit,
-  onMakeCurrent,
-  currentTimebox,
-}) {
+function Timebox({ title, totalTimeInMinutes, onDelete, onEdit, onMakeCurrent, currentTimebox }) {
   return (
     <div className="Timebox">
       <h3>
         {title} - {totalTimeInMinutes} min.
       </h3>
-      <button disabled={currentTimebox} onClick={onDelete}>
-        Usuń
+
+      <button
+        className={currentTimebox ? 'inactive' : 'delButton'}
+        disabled={currentTimebox}
+        onClick={onDelete}>
+        <i className="fas fa-trash" />
       </button>
-      <button disabled={currentTimebox} onClick={onEdit}>
-        Zmień
+      <button
+        className={currentTimebox ? 'inactive' : 'editButton'}
+        disabled={currentTimebox}
+        onClick={onEdit}>
+        <i className="fas fa-edit" />
       </button>
-      <button onClick={onMakeCurrent}>
-        Zacznij teraz
+      <button className="startButton" onClick={onMakeCurrent}>
+        <i className="fas fa-hourglass-start" />
       </button>
     </div>
   );

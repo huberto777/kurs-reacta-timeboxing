@@ -1,5 +1,6 @@
 body {
   background-color: $bg-secondary-dark;
+  color: $bg-secondary;
 }
 
 .App {
@@ -44,24 +45,27 @@ body {
 }
 
 .TimeboxSearch {
-  background-color: $bg-primary-dark;
+  background-color: $bg-secondary-dark;
   text-align: right;
+  border: $default-border;
   border-radius: $border-radius;
   padding: 20px;
   margin-bottom: 10px;
 }
 
-.Timebox {
+.Timebox,
+  {
   background-color: $bg-secondary-dark;
   color: $bg-secondary;
 }
 
 .CurrentTimebox {
   background-color: $bg-secondary;
+  color: $bg-secondary-dark;
 }
 
 input {
-  min-width: 60%;
+  min-width: 50%;
   margin-left: 20px;
   font-size: 16px;
   padding-left: 10px;
@@ -146,27 +150,68 @@ a {
 }
 
 .error {
-  color: orangered;
+  color: maroon;
 }
 
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: $bg-secondary; 
-    font-family: sans-serif;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $bg-secondary;
+  font-family: sans-serif;
 }
 
 .addButton {
-  background-color: maroon;
+  background-color: orangered;
   color: $bg-secondary;
   border: none;
   border-radius: 5px;
   font-size: 2em;
   margin: 0 0 10px 0;
+}
+
+.updateButton,
+.cancelButton,
+.delButton,
+.editButton,
+.startButton,
+.resetButton,
+.stopButton,
+.pauseButton,
+.login,
+.saveButton {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5em;
+  margin: 5px;
+  padding: 0;
+}
+
+.delButton,
+.cancelButton {
+  color: maroon;
+}
+
+
+.updateButton,
+.editButton,
+.stopButton,
+  {
+  color: $bg-finish;
+}
+
+.startButton,
+.resetButton,
+.pauseButton,
+.login {
+  color: $bg-primary-dark;
+}
+
+.saveButton {
+  color: $bg-tertiary-dark;
 }

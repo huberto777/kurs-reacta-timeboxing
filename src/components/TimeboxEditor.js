@@ -1,30 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from "react";
-import { useFormik } from "formik";
+import React from 'react';
+import { useFormik } from 'formik';
 
 const validate = (values) => {
   const errors = {};
   if (!values.title) {
-    errors.title = "Required";
+    errors.title = 'Required';
   } else if (values.title.length < 3) {
-    errors.title = "Must have  min 3 characters";
+    errors.title = 'Must have  min 3 characters';
   }
 
   if (!values.totalTimeInMinutes) {
-    errors.totalTimeInMinutes = "Required";
+    errors.totalTimeInMinutes = 'Required';
   } else if (values.totalTimeInMinutes <= 0) {
-    errors.totalTimeInMinutes = "Must be more than 0";
+    errors.totalTimeInMinutes = 'Must be more than 0';
   }
 
   return errors;
 };
 
-const TimeboxEditor = ({
-  initialTitle,
-  initialTotalTimeInMinutes,
-  onCancel,
-  onUpdate,
-}) => {
+const TimeboxEditor = ({ initialTitle, initialTotalTimeInMinutes, onCancel, onUpdate }) => {
   const formik = useFormik({
     initialValues: {
       title: initialTitle,
@@ -48,9 +43,7 @@ const TimeboxEditor = ({
           value={formik.values.title}
         />
       </label>
-      {formik.errors.title ? (
-        <div className="error">{formik.errors.title}</div>
-      ) : null}
+      {formik.errors.title ? <div className="error">{formik.errors.title}</div> : null}
       <br />
       <label htmlFor="totalTimeInMinutes">
         Ile minut ?
@@ -68,8 +61,12 @@ const TimeboxEditor = ({
         <div className="error">{formik.errors.totalTimeInMinutes}</div>
       ) : null}
       <br />
-      <button onClick={onCancel}>Anuluj</button>
-      <button type="submit">Submit</button>
+      <button className="cancelButton" onClick={onCancel}>
+        <i className="fas fa-window-close" />
+      </button>
+      <button className="updateButton" type="submit">
+        <i className="fas fa-pen" />
+      </button>
     </form>
   );
 };

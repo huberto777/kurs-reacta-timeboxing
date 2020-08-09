@@ -101,17 +101,28 @@ class CurrentTimebox extends React.Component {
           color="red"
           big
         />
-        <button onClick={this.handleStart} disabled={isRunning || isFinished}>
-          Start
+        <button
+          className={isRunning || isFinished ? 'inactive' : 'startButton'}
+          onClick={this.handleStart}
+          disabled={isRunning || isFinished}>
+          <i className="fas fa-play" />
         </button>
-        <button onClick={this.handleStop} disabled={!isRunning}>
-          Stop
+        <button
+          className={!isRunning ? 'inactive' : 'stopButton'}
+          onClick={this.handleStop}
+          disabled={!isRunning}>
+          <i className="fas fa-stop" />
         </button>
-        <button onClick={this.togglePause} disabled={!isRunning}>
-          {isPaused ? 'Wznów' : 'Pauzuj'}
+        <button
+          className={!isRunning ? 'inactive' : 'pauseButton'}
+          onClick={this.togglePause}
+          disabled={!isRunning}>
+          {isPaused ? <i className="fas fa-redo-alt" /> : <i className="fas fa-pause" />}
         </button>
         Liczba przerw: {pausesCount}
-        <button onClick={onCancel}>reset</button>
+        <button className="resetButton" onClick={onCancel}>
+          <i className="fas fa-window-close" />
+        </button>
       </div>
     );
   }

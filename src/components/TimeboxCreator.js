@@ -64,8 +64,12 @@ const TimeboxCreator = ({ onCreate, onClose }) => {
         <div className="error">{formik.errors.totalTimeInMinutes}</div>
       ) : null}
       <br />
-      <button type="submit">Zapisz</button>
-      <button onClick={onClose}>Anuluj</button>
+      <button className="saveButton" type="submit">
+        <i className="fas fa-save" />
+      </button>
+      <button className="cancelButton" onClick={onClose}>
+        <i className="fas fa-window-close" />
+      </button>
     </form>
   );
 };

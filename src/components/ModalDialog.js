@@ -8,10 +8,9 @@ function ModalDialog({ onClose, children, onCreate }) {
       <div className="modal">
         <div
           style={{
-            backgroundColor: 'maroon',
+            backgroundColor: 'orangered',
             padding: 40,
-          }}
-        >
+          }}>
           {children}
           <h2 className="title">Dodanie timeboxa</h2>
           <TimeboxCreator onCreate={onCreate} onClose={onClose} />

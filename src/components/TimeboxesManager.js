@@ -30,6 +30,7 @@ function TimeboxesManager() {
 
   useEffect(() => {
     dispatch(fetchAllTimeboxes(accessToken));
+    return () => {};
   }, [accessToken, dispatch]);
 
   const handleCreate = (createdTimebox) => {
@@ -71,8 +72,6 @@ function TimeboxesManager() {
       {timeboxCreating ? (
         <ModalDialog onClose={() => dispatch(cancelTimeboxCreating())} onCreate={handleCreate} />
       ) : (
-        //   <TimeboxCreator  />
-        // </ModalDialog>
         <button className="addButton" onClick={() => dispatch(setTimeboxCreating())}>
           +
         </button>
