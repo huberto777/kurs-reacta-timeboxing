@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a6f3c52d5140da2d4b7e529a3b614ae4",
+    "revision": "86cd14363f88b45909c58c94cd9dbf93",
     "url": "/kurs-reacta-timeboxing/index.html"
   },
   {
