@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -33,7 +35,7 @@ class LoginForm extends React.Component {
         </label>
         <br />
         <button className="login">
-          <i className="fas fa-sign-in-alt" />
+          <FontAwesomeIcon icon={faSignInAlt} />
         </button>
       </form>
     );

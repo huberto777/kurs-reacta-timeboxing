@@ -1,5 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faEdit, faHourglassStart } from '@fortawesome/free-solid-svg-icons';
 import { getCurrentTimebox } from '../reducers';
 
 function mapStateToProps(state) {
@@ -21,16 +23,16 @@ function Timebox({ title, totalTimeInMinutes, onDelete, onEdit, onMakeCurrent, c
         className={currentTimebox ? 'inactive' : 'delButton'}
         disabled={currentTimebox}
         onClick={onDelete}>
-        <i className="fas fa-trash" />
+        <FontAwesomeIcon icon={faTrash} />
       </button>
       <button
         className={currentTimebox ? 'inactive' : 'editButton'}
         disabled={currentTimebox}
         onClick={onEdit}>
-        <i className="fas fa-edit" />
+        <FontAwesomeIcon icon={faEdit} />
       </button>
       <button className="startButton" onClick={onMakeCurrent}>
-        <i className="fas fa-hourglass-start" />
+        <FontAwesomeIcon icon={faHourglassStart} />
       </button>
     </div>
   );

@@ -1,5 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faPlay,
+  faStop,
+  faRedoAlt,
+  faPause,
+  faWindowClose,
+} from '@fortawesome/free-solid-svg-icons';
 import Clock from './Clock';
 import ProgressBar from './ProgressBar';
 import { getMinutesAndSecondsFromDurationInSeconds } from '../lib/time';
@@ -105,23 +113,23 @@ class CurrentTimebox extends React.Component {
           className={isRunning || isFinished ? 'inactive' : 'startButton'}
           onClick={this.handleStart}
           disabled={isRunning || isFinished}>
-          <i className="fas fa-play" />
+          <FontAwesomeIcon icon={faPlay} />
         </button>
         <button
           className={!isRunning ? 'inactive' : 'stopButton'}
           onClick={this.handleStop}
           disabled={!isRunning}>
-          <i className="fas fa-stop" />
+          <FontAwesomeIcon icon={faStop} />
         </button>
         <button
           className={!isRunning ? 'inactive' : 'pauseButton'}
           onClick={this.togglePause}
           disabled={!isRunning}>
-          {isPaused ? <i className="fas fa-redo-alt" /> : <i className="fas fa-pause" />}
+          {isPaused ? <FontAwesomeIcon icon={faRedoAlt} /> : <FontAwesomeIcon icon={faPause} />}
         </button>
         Liczba przerw: {pausesCount}
         <button className="resetButton" onClick={onCancel}>
-          <i className="fas fa-window-close" />
+          <FontAwesomeIcon icon={faWindowClose} />
         </button>
       </div>
     );

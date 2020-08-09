@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { useFormik } from 'formik';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWindowClose, faPen } from '@fortawesome/free-solid-svg-icons';
 
 const validate = (values) => {
   const errors = {};
@@ -62,10 +64,10 @@ const TimeboxEditor = ({ initialTitle, initialTotalTimeInMinutes, onCancel, onUp
       ) : null}
       <br />
       <button className="cancelButton" onClick={onCancel}>
-        <i className="fas fa-window-close" />
+        <FontAwesomeIcon icon={faWindowClose} />
       </button>
       <button className="updateButton" type="submit">
-        <i className="fas fa-pen" />
+        <FontAwesomeIcon icon={faPen} />
       </button>
     </form>
   );

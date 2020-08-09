@@ -1,5 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSave, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 
 const validate = (values) => {
   const errors = {};
@@ -65,10 +67,10 @@ const TimeboxCreator = ({ onCreate, onClose }) => {
       ) : null}
       <br />
       <button className="saveButton" type="submit">
-        <i className="fas fa-save" />
+        <FontAwesomeIcon icon={faSave} />
       </button>
       <button className="cancelButton" onClick={onClose}>
-        <i className="fas fa-window-close" />
+        <FontAwesomeIcon icon={faWindowClose} />
       </button>
     </form>
   );
